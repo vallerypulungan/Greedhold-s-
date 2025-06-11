@@ -1,0 +1,74 @@
+{
+    "name": "Playerinput",
+    "maps": [
+        {
+            "name": "Gameplay",
+            "id": "30f76d63-f0d0-44d3-ab32-28fc67243245",
+            "actions": [
+                {
+                    "name": "Drag",
+                    "type": "Button",
+                    "id": "87e9da24-215e-42c3-ba33-f789bbae528d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ZoomOut",
+                    "type": "Button",
+                    "id": "99c71887-9bfd-470f-8ac1-592a592dcc11",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ZoomIn",
+                    "type": "Button",
+                    "id": "ab35295f-40c0-431e-927e-66bce6b7c010",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "c452ff6f-b9f4-4f2c-b0e1-f9cb1e7b0ca0",
+                    "path": "<Mouse>/middleButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Drag",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b82941e5-bd9a-46d1-94af-857ab0ed509b",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "Hold,Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ZoomOut",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "58dc011b-e8ba-4900-9d40-4597ea75166a",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ZoomIn",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
