@@ -1,0 +1,60 @@
+{
+  "stages": [
+  {
+    "stage": 1,
+    "waves": [
+      { "wave_id": 1, "spawn_time": "05:00", "enemies": [ { "type": "Swordman", "count": 5 }, { "type": "Archer", "count": 2 } ] },
+      { "wave_id": 2, "spawn_time": "07:00", "enemies": [ { "type": "Swordman", "count": 6 }, { "type": "Archer", "count": 3 } ] },
+      { "wave_id": 3, "spawn_time": "09:00", "enemies": [ { "type": "Swordman", "count": 8 }, { "type": "Archer", "count": 4 } ] }
+    ]
+  },
+  {
+    "stage": 2,
+    "waves": [
+      { "wave_id": 1, "spawn_time": "05:00", "enemies": [ { "type": "Swordman", "count": 6 }, { "type": "Archer", "count": 3 } ] },
+      { "wave_id": 2, "spawn_time": "07:00", "enemies": [ { "type": "Swordman", "count": 7 }, { "type": "Archer", "count": 4 } ] },
+      { "wave_id": 3, "spawn_time": "09:00", "enemies": [ { "type": "Swordman", "count": 9 }, { "type": "Archer", "count": 5 } ] }
+    ]
+  },
+  {
+    "stage": 3,
+    "waves": [
+      { "wave_id": 1, "spawn_time": "05:00", "enemies": [ { "type": "Swordman", "count": 8 }, { "type": "Archer", "count": 5 } ] },
+      { "wave_id": 2, "spawn_time": "07:00", "enemies": [ { "type": "Swordman", "count": 10 }, { "type": "Archer", "count": 6 } ] },
+      { "wave_id": 3, "spawn_time": "09:00", "enemies": [ { "type": "Swordman", "count": 12 }, { "type": "Archer", "count": 6 } ] }
+    ]
+  },
+  {
+    "stage": 4,
+    "waves": [
+      { "wave_id": 1, "spawn_time": "05:00", "enemies": [ { "type": "Swordman", "count": 10 }, { "type": "Archer", "count": 6 } ] },
+      { "wave_id": 2, "spawn_time": "07:00", "enemies": [ { "type": "Swordman", "count": 12 }, { "type": "Archer", "count": 7 } ] },
+      { "wave_id": 3, "spawn_time": "09:00", "enemies": [ { "type": "Swordman", "count": 14 }, { "type": "Archer", "count": 7 } ] }
+    ]
+  },
+  {
+    "stage": 5,
+    "waves": [
+      { "wave_id": 1, "spawn_time": "05:00", "enemies": [ { "type": "Swordman", "count": 10 }, { "type": "Knight", "count": 2 }, { "type": "Crossbowman", "count": 2 } ] },
+      { "wave_id": 2, "spawn_time": "07:00", "enemies": [ { "type": "Knight", "count": 4 }, { "type": "Crossbowman", "count": 3 } ] },
+      { "wave_id": 3, "spawn_time": "09:00", "enemies": [ { "type": "Knight", "count": 5 }, { "type": "Archer", "count": 4 }, { "type": "Crossbowman", "count": 4 } ] }
+    ]
+  },
+  {
+    "stage": 10,
+    "waves": [
+      { "wave_id": 1, "spawn_time": "05:00", "enemies": [ { "type": "Knight", "count": 6 }, { "type": "Crossbowman", "count": 5 } ] },
+      { "wave_id": 2, "spawn_time": "07:00", "enemies": [ { "type": "Knight", "count": 8 }, { "type": "Crossbowman", "count": 6 }, { "type": "Archer", "count": 4 } ] },
+      { "wave_id": 3, "spawn_time": "09:00", "enemies": [ { "type": "Paladin", "count": 2 }, { "type": "Knight", "count": 5 }, { "type": "Crossbowman", "count": 6 } ] }
+    ]
+  },
+  {
+    "stage": 15,
+    "waves": [
+      { "wave_id": 1, "spawn_time": "05:00", "enemies": [ { "type": "Paladin", "count": 4 }, { "type": "Elite Marksman", "count": 4 } ] },
+      { "wave_id": 2, "spawn_time": "07:00", "enemies": [ { "type": "Paladin", "count": 6 }, { "type": "Knight", "count": 5 }, { "type": "Crossbowman", "count": 4 } ] },
+      { "wave_id": 3, "spawn_time": "09:00", "enemies": [ { "type": "Paladin", "count": 8 }, { "type": "Elite Marksman", "count": 6 }, { "type": "Knight", "count": 6 } ] }
+    ]
+  }
+]
+}
