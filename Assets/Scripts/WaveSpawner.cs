@@ -37,6 +37,7 @@ public class WaveSpawner : MonoBehaviour {
     private StageList stageList;
     private int currentStage = 1;
     private List<GameObject> activeEnemies = new List<GameObject>();
+    private WaveNotifier waveNotifier;
 
     private void Start() {
         if (waveJson == null) {
@@ -55,6 +56,8 @@ public class WaveSpawner : MonoBehaviour {
             return;
         }
 
+        waveNotifier = FindObjectOfType<WaveNotifier>();
+        FindObjectOfType<StageUIManager>()?.ShowStage(currentStage);
         StartCoroutine(SpawnWaves());
     }
 
@@ -70,7 +73,9 @@ public class WaveSpawner : MonoBehaviour {
         foreach (var wave in stage.waves) {
             yield return new WaitUntil(() => activeEnemies.Count == 0);
 
-            Debug.Log($"Spawning wave {wave.wave_id} with grouped units...");
+            if (waveNotifier != null) {
+                waveNotifier.ShowWaveMessage($"Wave {wave.wave_id} starting...");
+            }
 
             foreach (var enemy in wave.enemies) {
                 GameObject prefab = GetEnemyPrefab(enemy.type);
@@ -90,29 +95,38 @@ public class WaveSpawner : MonoBehaviour {
                 float speedIncrement = 0.1f;
                 float calculatedSpeed = baseSpeed + (wave.wave_id - 1) * speedIncrement;
 
+                // Tambahkan script mover ke grup
+                EnemyGroupMover mover = groupObj.AddComponent<EnemyGroupMover>();
+                mover.speed = calculatedSpeed;
+
                 // Spawn musuh dan atur posisi
                 for (int i = 0; i < enemy.count; i++) {
                     Vector3 offset = new Vector3(i * 0.5f, 0, 0);
                     GameObject obj = Instantiate(prefab, groupObj.transform.position + offset, Quaternion.identity);
                     obj.transform.parent = groupObj.transform;
 
-                    // Atur moveSpeed musuh biasa
-                    Enemy enemyScript = obj.GetComponent<Enemy>();
-                    if (enemyScript != null)
-                    {
-                        enemyScript.moveSpeed = calculatedSpeed;
-                    }
-
-                    // Atur kecepatan Archer jika RangedEnemy
+                    // Atur kecepatan khusus untuk RangedEnemy
                     RangedEnemy rangedScript = obj.GetComponent<RangedEnemy>();
-                    if (rangedScript != null)
-                    {
+                    if (rangedScript != null) {
                         rangedScript.normalSpeed = calculatedSpeed;
                     }
 
                     group.AddMember(obj);
                     activeEnemies.Add(obj);
                 }
+
+                // Tambahkan collider ke group agar bisa diklik
+                BoxCollider2D collider = groupObj.AddComponent<BoxCollider2D>();
+                float groupWidth = enemy.count * 0.5f;
+                collider.size = new Vector2(groupWidth, 1.0f);
+                collider.offset = new Vector2(groupWidth / 2f - 0.25f, 0);
+                collider.isTrigger = false;
+
+                // Tambahkan Rigidbody2D agar collider bisa ikut bergerak
+                Rigidbody2D rb = groupObj.AddComponent<Rigidbody2D>();
+                rb.bodyType = RigidbodyType2D.Kinematic;
+                rb.simulated = true;
+                rb.interpolation = RigidbodyInterpolation2D.Interpolate;
             }
         }
 

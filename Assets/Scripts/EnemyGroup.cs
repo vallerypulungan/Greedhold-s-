@@ -4,36 +4,46 @@ using UnityEngine;
 public class EnemyGroup : MonoBehaviour
 {
     public string enemyType;
-    public int count;
+    public int count => members.Count;
     public List<GameObject> members = new List<GameObject>();
+
+    private void OnMouseDown()
+    {
+        Debug.Log($"Clicked group: {enemyType}");
+
+        EnemyGroupUI ui = FindObjectOfType<EnemyGroupUI>();
+        if (ui != null)
+        {
+            ui.ShowPopup(this);
+        }
+        else
+        {
+            Debug.LogWarning("No UI Manager (EnemyGroupUI) found in scene.");
+        }
+    }
 
     public void Initialize(string type)
     {
         enemyType = type;
-        count = 0;
+        members = new List<GameObject>();
     }
-    
+
     public void AddMember(GameObject enemy)
     {
         members.Add(enemy);
-        count++;
-    }
-
-    // Misalnya untuk UI interaksi
-    public void OnClick()
-    {
-        Debug.Log($"Clicked on group: {enemyType}, Total: {count}");
-        // TODO: Panggil UI panel, tombol serang, dsb.
     }
 
     public void RemoveMember(GameObject enemy)
     {
-        members.Remove(enemy);
-        count--;
-
-        if (count <= 0)
+        if (members.Contains(enemy))
         {
-            Destroy(gameObject); // Hapus group object jika semua mati
+            members.Remove(enemy);
+        }
+
+        // Jika grup sudah kosong, bisa dihancurkan otomatis (opsional)
+        if (members.Count == 0)
+        {
+            Destroy(gameObject);
         }
     }
 }
